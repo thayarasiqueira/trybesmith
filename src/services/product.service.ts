@@ -1,4 +1,4 @@
-import IProduct from '../interfaces/products.interfaces';
+import { IProduct, Product } from '../interfaces/products.interfaces';
 import isValid from '../middlewares/validations';
 import productsModel from '../models/products.model';
 import HttpException from '../shared/http.exception';
@@ -12,6 +12,10 @@ const productsService = {
     const { insertId } = await productsModel.create(product);
     newProduct.id = insertId;
     return newProduct;
+  },
+  getAll: async ():Promise<Product[]> => {
+    const products = await productsModel.getAll();
+    return products as Product[];
   },
 };
   
