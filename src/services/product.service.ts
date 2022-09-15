@@ -1,5 +1,5 @@
 import { IProduct, Product } from '../interfaces/products.interfaces';
-import isValid from '../middlewares/validations';
+import { isValid } from '../middlewares/validations';
 import productsModel from '../models/products.model';
 import HttpException from '../shared/http.exception';
 

@@ -4,6 +4,7 @@ import httpErrors from './middlewares/http.errors';
 import productRouters from './routers/products.router';
 import usersRouters from './routers/users.router';
 import ordersRouters from './routers/orders.router';
+import usersController from './controllers/users.controller';
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.use(httpErrors);
 app.use(productRouters);
 app.use(usersRouters);
 app.use(ordersRouters);
+app.post('/login', usersController.login);
 
 export default app;

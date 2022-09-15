@@ -1,6 +1,6 @@
 import jwt, { SignOptions } from 'jsonwebtoken';
 
-const generateToken = (id: number | undefined, username: string) => {
+const generateToken = (username: string) => {
   const secret = process.env.JWT_SECRET || 'default_password';
 
   const JWT_CONFIG: SignOptions = {
@@ -8,7 +8,7 @@ const generateToken = (id: number | undefined, username: string) => {
     algorithm: 'HS256',
   };
 
-  const token = jwt.sign({ id, username }, secret, JWT_CONFIG);
+  const token = jwt.sign({ username }, secret, JWT_CONFIG);
 
   return token;
 };
