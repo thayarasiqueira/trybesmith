@@ -1,5 +1,5 @@
 import { IUser } from '../interfaces/users.interfaces';
-import { isValidLogin } from '../middlewares/validations';
+import { isValidLogin, isValidUser } from '../middlewares/validations';
 import usersModel from '../models/users.model';
 import generateToken from '../utils/generateToken';
 import ILogin from '../interfaces/login.interfaces';
@@ -7,9 +7,13 @@ import Service from '../interfaces/serice.interfaces';
 
 const usersService = {
   create: async (user: IUser) => {
+    const { code, message } = isValidUser(user);
+    if (message) {
+      return { code, message };
+    }
     const { username } = await usersModel.create(user);
     const token = generateToken(username);
-    return token;
+    return { code, token };
   },
   login: async (user: ILogin):Promise<Service> => {
     const { code, message } = isValidLogin(user);
