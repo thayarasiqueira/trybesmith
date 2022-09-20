@@ -1,5 +1,8 @@
 # Trybesmith
 
+![trybesmith-request](https://user-images.githubusercontent.com/98190097/191332071-615846f3-59fa-4269-8be2-0d32c032bad9.png)
+
+
 This project brings a medieval item store, in the form of a RESTful API, using Typescript.
 
 It was developed through layers (Models, Service and Controllers), allowing basic operations on a given database: Create, Read, Update and Delete (CRUD).
